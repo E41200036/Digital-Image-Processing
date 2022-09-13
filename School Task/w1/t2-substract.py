@@ -1,4 +1,3 @@
-from ctypes import resize
 import cv2
 import matplotlib.pyplot as plt
 

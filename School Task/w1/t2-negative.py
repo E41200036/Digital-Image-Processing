@@ -2,12 +2,13 @@ import cv2
 import matplotlib.pyplot as plt
 
 src            = cv2.imread("School Task\images\image.png")
+rgb_image      = cv2.cvtColor(src, cv2.COLOR_BGR2RGB)
 gray_image     = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
 negative_image = cv2.bitwise_not(gray_image)
 
 while True:
     plt.subplot(1, 3, 1)
-    plt.imshow(src)
+    plt.imshow(rgb_image)
     plt.title("Original")
     plt.xticks([])
     plt.yticks([])

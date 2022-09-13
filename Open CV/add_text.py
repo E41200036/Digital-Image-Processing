@@ -1,17 +1,24 @@
-from cgitb import text
-from email.mime import image
-import numpy as np
 import cv2
+import matplotlib.pyplot as plt
 
-image = cv2.imread('Open CV\images\image.png')
-output = image.copy()
+src_image = cv2.imread("Open CV\images\image.png")
 
-text = "Open CV"
-cv2.putText(output, text, (100, 100), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2)
+# convert image to rgb color
+rgb_image  = cv2.cvtColor(src_image, cv2.COLOR_BGR2RGB)
+gray_image = cv2.cvtColor(src_image, cv2.COLOR_BGR2GRAY)
 
 while True:
-    cv2.imshow("Text", output)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+    plt.subplot(1,3,1)
+    plt.imshow(rgb_image)
+    plt.title("RGB Image")
 
-cv2.destroyAllWindows()
+    plt.subplot(1,3,2)
+    plt.imshow(src_image)
+    plt.title("BGR Image")
+
+    plt.subplot(1,3,3)
+    plt.imshow(gray_image, cmap="gray")
+    plt.title("Gray Image")
+    
+    plt.show()
+    break
